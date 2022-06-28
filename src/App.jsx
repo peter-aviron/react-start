@@ -10,11 +10,11 @@ function App() {
       return;
     }
     const newItem = {
-      text: text,
-      id: Date.now(),
+      label: text,
+      id: items.length,
     };
     setItems((prevItems) => {
-      return prevItems.concat(newItem);
+      return [...prevItems, newItem];
     });
     setText("");
   }
@@ -29,7 +29,7 @@ function App() {
       <TodoList items={items} />
       <label>What needs to be done?</label>
       <input onChange={handleChange} value={text} />
-      <button onClick={handleClick}>Add #{items.length + 1}</button>
+      <button onClick={handleClick}>Add #{items.length + 1} todo</button>
     </div>
   );
 }
